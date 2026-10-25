@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#240815"><title>For Pooja ❤️</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;overflow:hidden;color:#fff3f7;font-family:Georgia,"Times New Roman",serif;background:radial-gradient(circle at 50% 30%,#6d163d 0,#350b23 40%,#13050e 100%)}
+body:before,body:after{content:"♥";position:fixed;color:#ff5b91;opacity:.12;font-size:35vw;pointer-events:none;animation:float 8s ease-in-out infinite}body:before{left:-10vw;top:-10vh}body:after{right:-12vw;bottom:-18vh;animation-delay:-4s}
+@keyframes float{50%{transform:translateY(-22px) rotate(12deg)}}.card{position:relative;z-index:1;width:min(92vw,580px);padding:clamp(28px,7vw,56px) 20px;text-align:center;border:1px solid #ff9abd55;border-radius:30px;background:#ffffff0b;box-shadow:0 25px 90px #0007,inset 0 1px #ffffff20;backdrop-filter:blur(10px)}
+.heart{font-size:64px;color:#ff5b91;text-shadow:0 0 28px #ff2d75;animation:beat 1.4s infinite}@keyframes beat{50%{transform:scale(1.13)}}h1{font-size:clamp(32px,8vw,53px);font-weight:normal;line-height:1.15;margin:16px 0 30px}h1 span{display:block;color:#ff9cbd;font-style:italic;margin-top:8px}
+.buttons{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;min-height:52px}button{border:0;border-radius:999px;padding:15px 28px;font-size:15px;font-weight:bold;cursor:pointer;transition:transform .2s,box-shadow .2s}#yes{background:linear-gradient(135deg,#ff7aa8,#ed2869);color:white;box-shadow:0 8px 28px #ff2c7655}#yes:hover{transform:scale(1.06);box-shadow:0 10px 35px #ff2c7680}#no{color:#ffe9f0;background:#ffffff12;border:1px solid #ffb6ce77}
+#message{font-size:clamp(27px,6vw,42px);line-height:1.4;color:#ffacc7;text-shadow:0 0 20px #ff3d8055}.hidden{display:none}.small{font:12px Arial,sans-serif;letter-spacing:.12em;color:#e8b8ca;margin-top:32px}.petal{position:fixed;top:-30px;pointer-events:none;z-index:2;animation:fall linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(560deg);opacity:.1}}
+</style></head>
+<body><main class="card">
+<section id="question"><div class="heart">♥</div><h1>Will you be mine?<span>Pooja ❤️</span></h1>
+<div class="buttons"><button id="yes">YES ❤️</button><button id="no">NO 🙈</button></div>
+<div class="small">A LITTLE QUESTION FROM SUBH</div></section>
+<section id="answer" class="hidden"><div class="heart">♥</div><div id="message">Aab tum meri ban gyi, Pooja chalo chodu tumhe 😂❤️</div></section>
+</main><script>
+const no=document.getElementById('no'),question=document.getElementById('question'),answer=document.getElementById('answer');
+no.addEventListener('pointerenter',runAway);no.addEventListener('click',e=>{e.preventDefault();runAway()});no.addEventListener('touchstart',e=>{e.preventDefault();runAway()},{passive:false});
+function runAway(){no.style.position='fixed';no.style.zIndex='5';const pad=12,maxX=window.innerWidth-no.offsetWidth-pad,maxY=window.innerHeight-no.offsetHeight-pad;no.style.left=Math.max(pad,Math.random()*maxX)+'px';no.style.top=Math.max(pad,Math.random()*maxY)+'px'}
+document.getElementById('yes').addEventListener('click',()=>{question.classList.add('hidden');answer.classList.remove('hidden');no.style.display='none';for(let i=0;i<35;i++){const p=document.createElement('span');p.className='petal';p.textContent=['♥','♡','🌹','✦'][Math.floor(Math.random()*4)];p.style.left=Math.random()*100+'vw';p.style.fontSize=(14+Math.random()*24)+'px';p.style.color=['#ff7aa8','#ffc3d8','#fff0f5'][Math.floor(Math.random()*3)];p.style.animationDuration=(4+Math.random()*5)+'s';p.style.animationDelay=(Math.random()*1.5)+'s';document.body.appendChild(p);setTimeout(()=>p.remove(),10000)}});
+</script></body></html>
